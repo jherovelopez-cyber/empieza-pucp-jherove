@@ -1,0 +1,18 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "id": "demo-route", "name": "Ruta demo" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-77.0811, -12.0697],
+          [-77.0807, -12.0696],
+          [-77.0801, -12.0691],
+          [-77.0794, -12.0689]
+        ]
+      }
+    }
+  ]
+}

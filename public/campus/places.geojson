@@ -1,0 +1,35 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "id": "place-library", "name": "Biblioteca", "type": "library" },
+      "geometry": { "type": "Point", "coordinates": [-77.0807, -12.0696] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "place-daes", "name": "DAES", "type": "service" },
+      "geometry": { "type": "Point", "coordinates": [-77.0801, -12.0691] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "place-cafe", "name": "Cafeteria", "type": "food" },
+      "geometry": { "type": "Point", "coordinates": [-77.0799, -12.0699] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "place-eegg", "name": "Estudios Generales", "type": "academic" },
+      "geometry": { "type": "Point", "coordinates": [-77.0794, -12.0689] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "place-topic", "name": "Topico", "type": "health" },
+      "geometry": { "type": "Point", "coordinates": [-77.0805, -12.0702] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "place-letters", "name": "Facultad de Letras", "type": "academic" },
+      "geometry": { "type": "Point", "coordinates": [-77.0802, -12.0686] }
+    }
+  ]
+}

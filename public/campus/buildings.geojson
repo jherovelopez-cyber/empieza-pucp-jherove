@@ -1,0 +1,33 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "code": "A", "name": "Facultad de Letras" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-77.08035, -12.06875],
+          [-77.08005, -12.06875],
+          [-77.08005, -12.06845],
+          [-77.08035, -12.06845],
+          [-77.08035, -12.06875]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "L", "name": "Estudios Generales" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-77.0796, -12.06905],
+          [-77.0792, -12.06905],
+          [-77.0792, -12.06875],
+          [-77.0796, -12.06875],
+          [-77.0796, -12.06905]
+        ]]
+      }
+    }
+  ]
+}

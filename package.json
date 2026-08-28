@@ -1,0 +1,52 @@
+{
+  "name": "empieza-pucp",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@9.15.4",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.5.2",
+    "@supabase/supabase-js": "^2.49.1",
+    "@tanstack/react-query": "^5.66.9",
+    "@turf/turf": "^7.2.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.475.0",
+    "maplibre-gl": "^5.1.0",
+    "next": "15.1.7",
+    "next-pwa": "^5.6.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-hook-form": "^7.54.2",
+    "tailwind-merge": "^3.0.1",
+    "zustand": "^5.0.3",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.2.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@types/node": "^22.13.4",
+    "@types/react": "19.0.8",
+    "@types/react-dom": "19.0.3",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.20.1",
+    "eslint-config-next": "15.1.7",
+    "jsdom": "^26.0.0",
+    "postcss": "^8.5.3",
+    "prettier": "^3.5.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  }
+}
