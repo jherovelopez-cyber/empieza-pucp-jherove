@@ -3,33 +3,33 @@
   "features": [
     {
       "type": "Feature",
-      "properties": { "id": "place-library", "name": "Biblioteca", "type": "library" },
-      "geometry": { "type": "Point", "coordinates": [-77.0807, -12.0696] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "id": "place-daes", "name": "DAES", "type": "service" },
-      "geometry": { "type": "Point", "coordinates": [-77.0801, -12.0691] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "id": "place-cafe", "name": "Cafeteria", "type": "food" },
-      "geometry": { "type": "Point", "coordinates": [-77.0799, -12.0699] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "id": "place-eegg", "name": "Estudios Generales", "type": "academic" },
+      "properties": { "id": "eeggc", "name": "Estudios Generales Ciencias", "category": "Aulas", "description": "Tu base principal. Aulas para tus primeras prácticas y exámenes." },
       "geometry": { "type": "Point", "coordinates": [-77.0794, -12.0689] }
     },
     {
       "type": "Feature",
-      "properties": { "id": "place-topic", "name": "Topico", "type": "health" },
-      "geometry": { "type": "Point", "coordinates": [-77.0805, -12.0702] }
+      "properties": { "id": "pab-z", "name": "Pabellón Z", "category": "Aulas", "description": "Aulas multipropósito y de gran capacidad." },
+      "geometry": { "type": "Point", "coordinates": [-77.0810, -12.0682] }
     },
     {
       "type": "Feature",
-      "properties": { "id": "place-letters", "name": "Facultad de Letras", "type": "academic" },
-      "geometry": { "type": "Point", "coordinates": [-77.0802, -12.0686] }
+      "properties": { "id": "pab-n", "name": "Pabellón N (Mac Gregor)", "category": "Aulas", "description": "Infraestructura moderna y espacios amplios de estudio." },
+      "geometry": { "type": "Point", "coordinates": [-77.0785, -12.0680] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "pab-e", "name": "Pabellón E", "category": "Laboratorios", "description": "Pabellón clásico con laboratorios de ciencias." },
+      "geometry": { "type": "Point", "coordinates": [-77.0815, -12.0700] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "pab-q", "name": "Pabellón Q", "category": "Aulas", "description": "Aulas adicionales para cursos de ciencias e ingeniería." },
+      "geometry": { "type": "Point", "coordinates": [-77.0805, -12.0675] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "cia", "name": "Complejo de Innovación Académica", "category": "Servicios", "description": "Aulario, biblioteca especializada y salas de computo." },
+      "geometry": { "type": "Point", "coordinates": [-77.0790, -12.0705] }
     }
   ]
 }
