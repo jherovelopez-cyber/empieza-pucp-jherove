@@ -8,7 +8,7 @@ type CampusMapState = {
 };
 
 export const useCampusMapStore = create<CampusMapState>((set) => ({
-  filter: "Servicios",
+  filter: "Todos",
   setSelectedPlaceId: (selectedPlaceId) => set({ selectedPlaceId }),
   setFilter: (filter) => set({ filter })
 }));

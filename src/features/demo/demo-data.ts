@@ -20,7 +20,7 @@ import type {
 } from "@/types/domain";
 
 export const ids = {
-  faculty: "fac-eeggll",
+  faculty: "fac-ciencias",
   semester: "sem-2027-1",
   group: "grp-h-204",
   student: "usr-andrea",
@@ -39,7 +39,7 @@ export const demoUsers: DemoUser[] = [
   {
     id: ids.jh,
     email: "jh@demo.com",
-    fullName: "Maria Fernanda Rios",
+    fullName: "María Fernanda Ríos",
     role: "jh",
     facultyId: ids.faculty
   },
@@ -53,8 +53,8 @@ export const demoUsers: DemoUser[] = [
 ];
 
 export const faculties: Faculty[] = [
-  { id: ids.faculty, name: "Estudios Generales Letras", code: "EEGGLL", letter: "L" },
-  { id: "fac-ciencias", name: "Estudios Generales Ciencias", code: "EEGGCC", letter: "C" },
+  { id: "fac-eeggll", name: "Estudios Generales Letras", code: "EEGGLL", letter: "L" },
+  { id: ids.faculty, name: "Estudios Generales Ciencias", code: "EEGGCC", letter: "C" },
   { id: "fac-sociales", name: "Ciencias Sociales", code: "SOC", letter: "S" }
 ];
 
@@ -226,7 +226,7 @@ export const announcements: Announcement[] = [
     authorId: ids.cf,
     targetType: "faculty",
     targetId: ids.faculty,
-    title: "Bienvenida EEGGLL",
+    title: "Bienvenida EEGGCC",
     content: "La guia de primera semana ya esta publicada.",
     createdAt: "2027-03-14T12:00:00Z"
   }
@@ -364,7 +364,8 @@ export const contentResources: ContentResource[] = [
     reviewedPercent: 82,
     publishedAt: "2027-03-01T12:00:00Z",
     createdAt: "2027-02-15T12:00:00Z",
-    updatedAt: "2027-03-01T12:00:00Z"
+    updatedAt: "2027-03-01T12:00:00Z",
+    url: "https://www.pucp.edu.pe/estudiante/"
   },
   {
     id: "content-map",
@@ -374,10 +375,11 @@ export const contentResources: ContentResource[] = [
     sourceType: "cf",
     facultyId: ids.faculty,
     status: "published",
-    scope: "Cachimbos EEGGLL",
+    scope: "Cachimbos EEGGCC",
     reviewedPercent: 76,
     createdAt: "2027-02-20T12:00:00Z",
-    updatedAt: "2027-03-01T12:00:00Z"
+    updatedAt: "2027-03-01T12:00:00Z",
+    url: "https://mapa.pucp.edu.pe/"
   },
   {
     id: "content-daes",
@@ -390,7 +392,8 @@ export const contentResources: ContentResource[] = [
     scope: "Todos",
     reviewedPercent: 0,
     createdAt: "2027-02-22T12:00:00Z",
-    updatedAt: "2027-02-22T12:00:00Z"
+    updatedAt: "2027-02-22T12:00:00Z",
+    url: "https://daes.pucp.edu.pe/"
   },
   {
     id: "content-mail",
@@ -403,7 +406,68 @@ export const contentResources: ContentResource[] = [
     scope: "JH",
     reviewedPercent: 0,
     createdAt: "2027-02-25T12:00:00Z",
-    updatedAt: "2027-02-25T12:00:00Z"
+    updatedAt: "2027-02-25T12:00:00Z",
+    url: "https://correo.pucp.edu.pe/"
+  }
+];
+
+export type JhMeeting = {
+  id: string;
+  title: string;
+  date: string;
+  time: string;
+  location: string;
+  type: "reunion" | "recorrido" | "recordatorio";
+};
+
+export const jhMeetings: JhMeeting[] = [
+  {
+    id: "meeting-1",
+    title: "Bienvenida del H-204",
+    date: "2027-03-16",
+    time: "09:00",
+    location: "Aula N-201",
+    type: "reunion"
+  },
+  {
+    id: "meeting-2",
+    title: "Recorrido por el campus",
+    date: "2027-03-18",
+    time: "11:00",
+    location: "Puerta principal",
+    type: "recorrido"
+  },
+  {
+    id: "meeting-3",
+    title: "Recordatorio de inscripción de prácticas",
+    date: "2027-03-19",
+    time: "18:00",
+    location: "Grupo del horario",
+    type: "recordatorio"
+  }
+];
+
+export type JhFaqItem = {
+  id: string;
+  question: string;
+  answer: string;
+};
+
+export const jhFaqs: JhFaqItem[] = [
+  {
+    id: "faq-practicas",
+    question: "¿Cómo inscribo prácticas?",
+    answer: "Ingresa al Campus Virtual, abre la sección Matrícula y selecciona Inscripción de prácticas. Revisa el horario y confirma tu vacante antes del cierre."
+  },
+  {
+    id: "faq-examenes",
+    question: "¿Dónde veo mi horario de exámenes?",
+    answer: "Puedes verlo en el Campus Virtual, dentro de Cursos y actividades > Horario de evaluaciones. Confirma siempre el aula en el anuncio oficial del curso."
+  },
+  {
+    id: "faq-laboratorio",
+    question: "¿Qué hago si no puedo asistir a un laboratorio?",
+    answer: "Comunícate cuanto antes con el docente o jefe de práctica por el canal oficial del curso. Explica el motivo y consulta si corresponde una recuperación; el JH no puede justificar la inasistencia."
   }
 ];
 
@@ -413,7 +477,9 @@ export const cfJhs: CfJhSummary[] = [
   ["Lucia Salas", "H-305", "Capacitacion pendiente", "5/12", true],
   ["Jorge Ramirez", undefined, "Sin asignar", "0/12", true],
   ["Ana Belen Castro", "H-118", "Activo", "12/12", false],
-  ["Sebastian Leon", undefined, "Falta contacto", "2/12", true]
+  ["Sebastian Leon", undefined, "Falta contacto", "2/12", true],
+  ["Daniela Chavez", "H-220", "Activo", "11/12", false],
+  ["Renato Aguilar", "H-312", "Checklist pendiente", "4/12", true]
 ].map(([fullName, groupName, status, checklistProgress, risk], index) => ({
   id: `cf-jh-${index}`,
   fullName: String(fullName),
@@ -422,3 +488,30 @@ export const cfJhs: CfJhSummary[] = [
   checklistProgress: String(checklistProgress),
   risk: Boolean(risk)
 }));
+
+export type CfGroupSummary = {
+  id: string;
+  name: string;
+  students: number;
+  jhName?: string;
+  coverage: number;
+  status: "assigned" | "unassigned" | "risk";
+};
+
+export const cfGroups: CfGroupSummary[] = [
+  { id: "group-101", name: "H-101", students: 31, jhName: "Carlos Perez", coverage: 74, status: "risk" },
+  { id: "group-118", name: "H-118", students: 29, jhName: "Ana Belen Castro", coverage: 100, status: "assigned" },
+  { id: ids.group, name: "H-204", students: 32, jhName: "Maria Fernanda Rios", coverage: 86, status: "assigned" },
+  { id: "group-220", name: "H-220", students: 30, jhName: "Daniela Chavez", coverage: 92, status: "assigned" },
+  { id: "group-305", name: "H-305", students: 34, jhName: "Lucia Salas", coverage: 42, status: "risk" },
+  { id: "group-312", name: "H-312", students: 28, jhName: "Renato Aguilar", coverage: 35, status: "risk" },
+  { id: "group-401", name: "H-401", students: 33, coverage: 0, status: "unassigned" },
+  { id: "group-406", name: "H-406", students: 27, coverage: 0, status: "unassigned" }
+];
+
+export const cfOnboardingMetrics = [
+  { label: "Correo PUCP activado", value: 88 },
+  { label: "Plataformas revisadas", value: 81 },
+  { label: "Mapa del campus revisado", value: 67 },
+  { label: "Contacto con su JH", value: 76 }
+];

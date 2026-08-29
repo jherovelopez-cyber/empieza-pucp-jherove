@@ -64,11 +64,11 @@ El archivo `.env.example` incluye:
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
 NEXT_PUBLIC_DEMO_MODE=true
 ```
 
-Con `NEXT_PUBLIC_DEMO_MODE=true`, el login permite entrar con:
+Con `NEXT_PUBLIC_DEMO_MODE=true`, el login usa autenticacion local demo y permite entrar con:
 
 - `student@demo.com`: Cachimbo.
 - `jh@demo.com`: JH.
@@ -82,9 +82,29 @@ Para conectar Supabase:
 
 1. Crea un proyecto en Supabase.
 2. Ejecuta `supabase/migrations/0001_initial_schema.sql`.
-3. Carga `supabase/seed.sql` si quieres datos base.
-4. Configura `.env.local` con `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` y `NEXT_PUBLIC_DEMO_MODE=false`.
-5. Implementa los repositorios Supabase pendientes para onboarding, grades, JH, CF y contenido.
+3. Ejecuta las migraciones nuevas en orden, incluyendo `supabase/migrations/20260828171000_auth_profiles_roles.sql`.
+4. Carga `supabase/seed.sql` si quieres datos base.
+5. Configura `.env.local` con `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` y `NEXT_PUBLIC_DEMO_MODE=false`.
+6. Implementa los repositorios Supabase pendientes para onboarding, grades, JH, CF y contenido.
+
+Con `NEXT_PUBLIC_DEMO_MODE=false`, el login usa Supabase Auth con email y contrasena. Despues de iniciar sesion, la app consulta `public.profiles` usando `auth.users.id`, obtiene `profiles.role` y redirige a `/cachimbo`, `/jh` o `/cf`. Las rutas de cada zona estan protegidas por rol desde layouts server-side.
+
+### Configurar usuarios de prueba
+
+1. Crea tres usuarios desde Supabase Dashboard > Authentication > Users.
+2. Cada usuario nuevo crea automaticamente un profile con `role = 'student'`.
+3. Deja el usuario student con ese rol.
+4. Asigna los roles privilegiados desde SQL administrativo:
+
+```sql
+update public.profiles
+set role = 'jh'
+where email = 'correo-jh@pucp.edu.pe';
+
+update public.profiles
+set role = 'cf'
+where email = 'correo-cf@pucp.edu.pe';
+```
 
 El modelo incluye perfiles, facultades, semestres, grupos, miembros de grupo, onboarding, checklist JH, anuncios, cursos, esquemas de evaluacion, notas, lugares del campus y recursos de contenido.
 

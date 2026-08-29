@@ -1,16 +1,19 @@
 import type { LucideIcon } from "lucide-react";
+import Link from "next/link";
 import { Card } from "@/components/ui/card";
 
 export function ActionCard({
   title,
   description,
-  icon: Icon
+  icon: Icon,
+  href
 }: {
   title: string;
   description?: string;
   icon: LucideIcon;
+  href?: string;
 }) {
-  return (
+  const content = (
     <Card className="flex items-center gap-3">
       <span className="grid size-11 shrink-0 place-items-center rounded-lg bg-pastel-blue text-primary">
         <Icon className="size-5" aria-hidden="true" />
@@ -21,4 +24,10 @@ export function ActionCard({
       </span>
     </Card>
   );
+
+  return href ? (
+    <Link href={href} className="block rounded-xl transition hover:-translate-y-0.5" aria-label={title}>
+      {content}
+    </Link>
+  ) : content;
 }

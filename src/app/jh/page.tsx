@@ -8,12 +8,12 @@ import { Card } from "@/components/ui/card";
 import { SectionHeader } from "@/components/layout/section-header";
 
 const shortcuts = [
-  { title: "Mi horario", description: "H-204", icon: Users },
-  { title: "Checklist", description: "Temas de bienvenida", icon: CheckSquare },
-  { title: "Enviar anuncio", description: "Mensaje al grupo", icon: Megaphone },
-  { title: "Agendar reunion", description: "Coordina una fecha", icon: CalendarPlus },
-  { title: "Recursos oficiales", description: "Material validado", icon: BookOpen },
-  { title: "Preguntas frecuentes", description: "Dudas comunes", icon: FileQuestion }
+  { title: "Mi horario", description: "H-204", icon: Users, href: "/jh/grupo" },
+  { title: "Checklist", description: "Temas de bienvenida", icon: CheckSquare, href: "/jh/checklist" },
+  { title: "Enviar anuncio", description: "Mensaje al grupo", icon: Megaphone, href: "/jh/mensajes" },
+  { title: "Agendar reunión", description: "Coordina una fecha", icon: CalendarPlus, href: "/jh/reuniones" },
+  { title: "Recursos oficiales", description: "Material validado", icon: BookOpen, href: "/jh/recursos" },
+  { title: "Preguntas frecuentes", description: "Dudas comunes", icon: FileQuestion, href: "/jh/faq" }
 ];
 
 export default async function JhHomePage() {
@@ -21,7 +21,7 @@ export default async function JhHomePage() {
 
   return (
     <PageContainer className="space-y-6">
-      <AppHeader title="Hola, Maria" subtitle="Tu panel como JH" />
+      <AppHeader title="Hola, María" subtitle="Tu panel como JH de EEGGCC" />
       <section className="grid grid-cols-2 gap-3">
         <StatCard label="Horario" value={dashboard.groupName} />
         <StatCard label="Cachimbos a cargo" value={dashboard.totalStudents} />

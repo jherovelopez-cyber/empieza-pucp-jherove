@@ -1,16 +1,30 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { ChecklistStatus, JhChecklistItem } from "@/types/domain";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { StatusBadge } from "@/components/feedback/status-badge";
+import { ProgressCard } from "@/components/layout/progress-card";
 
 const tabs = ["Todos", "Pendientes", "Completados"] as const;
+const storageKey = "empieza-jh-checklist";
 
 export function ChecklistClient({ items }: { items: JhChecklistItem[] }) {
   const [activeTab, setActiveTab] = useState<(typeof tabs)[number]>("Todos");
   const [localItems, setLocalItems] = useState(items);
+
+  useEffect(() => {
+    const saved = window.localStorage.getItem(storageKey);
+    if (!saved) return;
+    try {
+      setLocalItems(JSON.parse(saved) as JhChecklistItem[]);
+    } catch {
+      window.localStorage.removeItem(storageKey);
+    }
+  }, []);
+
+  const completed = localItems.filter((item) => item.status === "completed").length;
 
   const visibleItems = useMemo(() => {
     if (activeTab === "Pendientes") return localItems.filter((item) => item.status !== "completed");
@@ -19,17 +33,25 @@ export function ChecklistClient({ items }: { items: JhChecklistItem[] }) {
   }, [activeTab, localItems]);
 
   function setStatus(id: string, status: ChecklistStatus) {
-    setLocalItems((current) =>
-      current.map((item) =>
+    setLocalItems((current) => {
+      const updated = current.map((item) =>
         item.id === id
           ? { ...item, status, completedAt: status === "completed" ? new Date().toISOString() : undefined }
           : item
-      )
-    );
+      );
+      window.localStorage.setItem(storageKey, JSON.stringify(updated));
+      return updated;
+    });
   }
 
   return (
     <div className="space-y-4">
+      <ProgressCard
+        title="Avance del checklist"
+        completed={completed}
+        total={localItems.length}
+        percent={localItems.length ? (completed / localItems.length) * 100 : 0}
+      />
       <div className="flex gap-2 overflow-x-auto">
         {tabs.map((tab) => (
           <Button key={tab} variant={activeTab === tab ? "primary" : "secondary"} onClick={() => setActiveTab(tab)}>
@@ -45,7 +67,7 @@ export function ChecklistClient({ items }: { items: JhChecklistItem[] }) {
               <p className="text-sm text-muted-foreground">{item.description}</p>
             </div>
             <StatusBadge tone={item.status === "completed" ? "green" : item.status === "scheduled" ? "blue" : "yellow"}>
-              {item.status}
+              {item.status === "completed" ? "Completado" : item.status === "scheduled" ? "Programado" : "Pendiente"}
             </StatusBadge>
           </div>
           <div className="grid grid-cols-3 gap-2">
