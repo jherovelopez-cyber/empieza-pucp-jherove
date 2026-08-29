@@ -37,7 +37,7 @@ importers:
         specifier: ^0.475.0
         version: 0.475.0(react@19.0.0)
       maplibre-gl:
-        specifier: ^5.1.0
+        specifier: ^5.24.0
         version: 5.24.0
       next:
         specifier: 15.5.24
@@ -73,6 +73,9 @@ importers:
       '@testing-library/user-event':
         specifier: ^14.6.1
         version: 14.6.6(@testing-library/dom@10.4.1)
+      '@types/maplibre-gl':
+        specifier: ^1.14.0
+        version: 1.14.0
       '@types/node':
         specifier: ^22.13.4
         version: 22.20.1
@@ -1852,6 +1855,10 @@ packages:
 
   '@types/kdbush@3.0.5':
     resolution: {integrity: sha512-tdJz7jaWFu4nR+8b2B+CdPZ6811ighYylWsu2hpsivapzW058yP0KdfZuNY89IiRe5jbKvBGXN3LQdN2KPXVdQ==}
+
+  '@types/maplibre-gl@1.14.0':
+    resolution: {integrity: sha512-I6ibscT7UdL1oOqqCz9s1gjcolLaUPkHIIfMLusczTvlsMhjORyS6sE1g4V/NESAOL5KhNQX3/31LJH+OCGjkg==}
+    deprecated: This is a stub types definition. maplibre-gl provides its own type definitions, so you do not need this installed.
 
   '@types/node@22.20.1':
     resolution: {integrity: sha512-EANqOCF9QFyra+4pfxUcX9STKJpCLjMbObVzljIJomAWSnuSIEAvyzEU53GaajbXJEgdh0iEcPL+DGvpUd4k1Q==}
@@ -6908,6 +6915,10 @@ snapshots:
   '@types/json5@0.0.29': {}
 
   '@types/kdbush@3.0.5': {}
+
+  '@types/maplibre-gl@1.14.0':
+    dependencies:
+      maplibre-gl: 5.24.0
 
   '@types/node@22.20.1':
     dependencies:

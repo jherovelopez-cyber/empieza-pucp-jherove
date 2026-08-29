@@ -163,6 +163,7 @@ export type ContentResource = {
   publishedAt?: string;
   createdAt: string;
   updatedAt: string;
+  url?: string;
 };
 
 export type CfJhSummary = {

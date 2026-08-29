@@ -1,12 +1,13 @@
 import { AppHeader } from "@/components/layout/app-header";
 import { PageContainer } from "@/components/layout/page-container";
-import { EmptyState } from "@/components/feedback/empty-state";
+import { MessagesClient } from "@/features/jh/messages-client";
+import { announcements, ids } from "@/features/demo/demo-data";
 
 export default function JhMessagesPage() {
   return (
     <PageContainer className="space-y-6">
-      <AppHeader title="Mensajes" subtitle="Anuncios preparados para el H-204" />
-      <EmptyState label="La mensajeria real queda lista para conectarse con Supabase Realtime." />
+      <AppHeader title="Mensajes" subtitle="Comunícate con los cachimbos del H-204" />
+      <MessagesClient initialAnnouncements={announcements.filter((item) => item.authorId === ids.jh)} />
     </PageContainer>
   );
 }

@@ -4,6 +4,7 @@ const items: NavItem[] = [
   { href: "/jh", label: "Inicio", icon: "home" },
   { href: "/jh/grupo", label: "Grupo", icon: "users" },
   { href: "/jh/checklist", label: "Checklist", icon: "check" },
+  { href: "/jh/reuniones", label: "Reuniones", icon: "calendar" },
   { href: "/jh/mensajes", label: "Mensajes", icon: "messages" },
   { href: "/jh/perfil", label: "Perfil", icon: "user" }
 ];
