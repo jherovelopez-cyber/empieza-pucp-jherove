@@ -1,4 +1,5 @@
 import { MobileBottomNav, type NavItem } from "@/components/navigation/mobile-bottom-nav";
+import { requireRole } from "@/features/auth/server";
 
 const items: NavItem[] = [
   { href: "/cachimbo", label: "Inicio", icon: "home" },
@@ -8,7 +9,9 @@ const items: NavItem[] = [
   { href: "/cachimbo/perfil", label: "Perfil", icon: "user" }
 ];
 
-export default function CachimboLayout({ children }: { children: React.ReactNode }) {
+export default async function CachimboLayout({ children }: { children: React.ReactNode }) {
+  await requireRole("student");
+
   return (
     <>
       {children}

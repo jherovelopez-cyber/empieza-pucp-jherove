@@ -1,4 +1,5 @@
 import { MobileBottomNav, type NavItem } from "@/components/navigation/mobile-bottom-nav";
+import { requireRole } from "@/features/auth/server";
 
 const items: NavItem[] = [
   { href: "/jh", label: "Inicio", icon: "home" },
@@ -8,7 +9,9 @@ const items: NavItem[] = [
   { href: "/jh/perfil", label: "Perfil", icon: "user" }
 ];
 
-export default function JhLayout({ children }: { children: React.ReactNode }) {
+export default async function JhLayout({ children }: { children: React.ReactNode }) {
+  await requireRole("jh");
+
   return (
     <>
       {children}
